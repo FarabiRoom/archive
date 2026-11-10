@@ -251,5 +251,41 @@
                 alert("Nama dan Jabatan wajib diisi!");
                 return;
             }
+ataMasingMember.push({ nama, role, asal, quote, foto });
+simpanKeStorage();
+document.getElementById('input-nama').value = "";
+document.getElementById('input-role').value = "";
+document.getElementById('input-asal').value = "";
+document.getElementById('input-quote').value = "";
+document.getElementById('input-foto').value = "";
+alert("Anggota berhasil ditambahkan!");
+}
+function hapusMember(index) {
+if(confirm("Hapus anggota ini?")) {
+dataMasingMember.splice(index, 1);
+simpanKeStorage();
+}
+}
+function bukaHalaman(namaHalaman) {
+document.getElementById('halaman-home').classList.add('display-none');
+document.getElementById('halaman-profil').classList.add('display-none');
+document.getElementById('halaman-admin').classList.add('display-none');
+document.getElementById('nav-home').classList.remove('active');
+document.getElementById('nav-profil').classList.remove('active');
+document.getElementById('nav-admin').classList.remove('active');
+if (namaHalaman === 'home') {
+document.getElementById('halaman-home').classList.remove('display-none');
+document.getElementById('nav-home').classList.add('active');
+} else if (namaHalaman === 'profil') {
+document.getElementById('halaman-profil').classList.remove('display-none');
+document.getElementById('nav-profil').classList.add('active');
+} else if (namaHalaman === 'admin') {
+document.getElementById('halaman-admin').classList.remove('display-none');
+document.getElementById('nav-admin').classList.add('active');
+}
+}
+renderProfil();
+
+
 
 
